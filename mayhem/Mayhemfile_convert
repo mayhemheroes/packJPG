@@ -1,0 +1,10 @@
+project: packJPG
+# Target name preserved from the original mayhemheroes integration (packJPG) so the Mayhem run
+# history stays continuous. The original was a file-input target (/packJPG @@); this is the
+# equivalent in-process libFuzzer harness driving packJPG's library convert entrypoint
+# (pjglib_convert_stream2mem) on an attacker JPEG/PJG — the parse/decode/recompress path.
+target: packJPG
+
+cmds:
+  - cmd: /mayhem/packjpg-convert-fuzz
+    libfuzzer: true
